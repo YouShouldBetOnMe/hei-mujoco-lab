@@ -1,0 +1,98 @@
+{
+  "upstream_repository": "https://github.com/YouShouldBetOnMe/hei-mujoco-sim",
+  "upstream_commit": "08a1f728e98b59e3a88e013ecd295cc5b0a21542",
+  "authoritative_files": [
+    "scene.xml",
+    "hei_sim/environment.py",
+    "hei_sim/scene_reference.json"
+  ],
+  "debug_builder_not_used": "bundled legacy scene builder disables contacts; real Environment adds physics; use final scene.xml",
+  "local_original_robot_repository_untouched": true,
+  "robot_meshes_verified_identical": 27,
+  "room_geometry_changes": [
+    "LaptopDesk__laptop_base",
+    "LaptopDesk__laptop_screen"
+  ],
+  "other_room_geometry_or_transforms_changed": false,
+  "robot_pose_and_camera_mounts_preserved": true,
+  "environment_collision_geoms_synced": 635,
+  "surface_contact_profile": {
+    "contype": "1",
+    "conaffinity": "3",
+    "condim": "6",
+    "friction": "0.80000000000000004 0.01 0.001",
+    "solref": "0.02 1",
+    "solimp": "0.90000000000000002 0.94999999999999996 0.001 0.5 2",
+    "solmix": "1",
+    "priority": "0",
+    "margin": "0",
+    "gap": "0"
+  },
+  "robot_friction_before": [
+    0.8,
+    0.01,
+    0.001
+  ],
+  "robot_friction_after": [
+    1.0,
+    0.01,
+    0.001
+  ],
+  "robot_collision_geoms_synced": [
+    "collision_base_link_1",
+    "collision_front_left_wheel_link_1",
+    "collision_front_right_wheel_link_1",
+    "collision_rear_left_wheel_link_1",
+    "collision_rear_right_wheel_link_1",
+    "collision_lidar_link_1",
+    "collision_imu_link_1",
+    "collision_lift_column_link_1",
+    "collision_lift_carriage_link_1",
+    "collision_a_right_base_link_1",
+    "collision_a_right_link1_1",
+    "collision_a_right_link2_1",
+    "collision_a_right_link3_1",
+    "collision_a_right_link4_1",
+    "collision_a_right_link5_1",
+    "collision_a_right_link6_1",
+    "collision_a_right_end_link_L_finger_1",
+    "collision_a_right_end_link_R_finger_1",
+    "collision_b_left_base_link_1",
+    "collision_b_left_link1_1",
+    "collision_b_left_link2_1",
+    "collision_b_left_link3_1",
+    "collision_b_left_link4_1",
+    "collision_b_left_link5_1",
+    "collision_b_left_link6_1",
+    "collision_b_left_end_link_L_finger_1",
+    "collision_b_left_end_link_R_finger_1"
+  ],
+  "wheel_armature_changed_from_002_to_0": [
+    "front_left_wheel_joint",
+    "front_right_wheel_joint",
+    "rear_left_wheel_joint",
+    "rear_right_wheel_joint"
+  ],
+  "gravity_m_s2": [
+    0.0,
+    0.0,
+    -9.81
+  ],
+  "timestep_s": 0.002,
+  "solver": {
+    "integrator": "implicitfast",
+    "iterations": 60,
+    "multiccd": true,
+    "cone": "elliptic",
+    "impratio": 10,
+    "noslip_iterations": 5
+  },
+  "intentional_non_sync": [
+    "upstream demo table/ground/sky/banana omitted; use existing room and requested bottle",
+    "existing room geometry, robot base pose and home gripper opening retained",
+    "local actuator ordering and stable collision geom names retained; parameters matched by name",
+    "no upstream dataset fixed-lift variant, controller, capture listener or real hardware code"
+  ],
+  "source_revisions_preserved": true,
+  "robot_training_approved": false
+}

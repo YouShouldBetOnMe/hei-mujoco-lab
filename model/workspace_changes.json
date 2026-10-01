@@ -1,0 +1,109 @@
+{
+  "removed_names": [
+    "OfficeWorkstation__desk_monitor_base",
+    "OfficeWorkstation__desk_monitor_post",
+    "OfficeWorkstation__desk_monitor_screen",
+    "OfficeWorkstation__open_box_envelope",
+    "OfficeWorkstation__open_box_envelope_tape",
+    "OfficeWorkstation__tall_package",
+    "OfficeWorkstation__tall_package_tape",
+    "OfficeWorkstation__small_package",
+    "OfficeWorkstation__small_package_tape",
+    "OfficeWorkstation__clear_storage_bin",
+    "BenchEquipment__monitor_left_base",
+    "BenchEquipment__monitor_left_post",
+    "BenchEquipment__monitor_left_screen",
+    "BenchEquipment__monitor_right_base",
+    "BenchEquipment__monitor_right_post",
+    "BenchEquipment__monitor_right_screen",
+    "BenchEquipment__instrument",
+    "BenchEquipment__white_instrument",
+    "BenchEquipment__supply_case",
+    "BenchEquipment__box_right"
+  ],
+  "changed_names": [
+    "LaptopDesk__top",
+    "LaptopDesk__leg_0_0",
+    "LaptopDesk__leg_0_1",
+    "LaptopDesk__side_brace_0",
+    "LaptopDesk__leg_1_0",
+    "LaptopDesk__leg_1_1",
+    "LaptopDesk__side_brace_1",
+    "Chair9__seat",
+    "Chair9__column",
+    "Chair9__spoke_0",
+    "Chair9__wheel_0",
+    "Chair9__spoke_1",
+    "Chair9__wheel_1",
+    "Chair9__spoke_2",
+    "Chair9__wheel_2",
+    "Chair9__spoke_3",
+    "Chair9__wheel_3",
+    "Chair9__spoke_4",
+    "Chair9__wheel_4",
+    "Chair9__back_edge_0",
+    "Chair9__arm_support_0",
+    "Chair9__armrest_0",
+    "Chair9__back_edge_1",
+    "Chair9__arm_support_1",
+    "Chair9__armrest_1",
+    "Chair9__back_top",
+    "Chair9__mesh_slat_0",
+    "Chair9__mesh_slat_1",
+    "Chair9__mesh_slat_2",
+    "Chair9__mesh_slat_3",
+    "Chair9__mesh_slat_4",
+    "Chair9__mesh_slat_5",
+    "Chair9__mesh_slat_6",
+    "Chair9__mesh_slat_7",
+    "Chair9__mesh_slat_8",
+    "Chair9__mesh_slat_9",
+    "Chair9__mesh_slat_10",
+    "Chair9__mesh_slat_11"
+  ],
+  "cleanup_scope": "OfficeWorkstation tabletop contents and all BenchEquipment; floor cartons/side printer retained",
+  "front_laptop_retained": false,
+  "floor_cartons_retained": true,
+  "table_before_size_m": [
+    0.8350642919540405,
+    0.6537697315216064,
+    0.02200000000000002
+  ],
+  "table_after_size_m": [
+    1.8600000000000003,
+    0.88,
+    0.02200000000000002
+  ],
+  "table_reference": "OfficeWorkstation__light_top",
+  "table_before_center": [
+    -1.780763597812256,
+    -2.399908243742436,
+    0.7590774978491553
+  ],
+  "table_after_center": [
+    -1.7807635907495134,
+    -2.5130233779816327,
+    0.7590774978491553
+  ],
+  "top_height_m": 0.7700774978491554,
+  "robot_side_edge_kept_fixed": true,
+  "robot_pose_unchanged": true,
+  "chair_translation_m": [
+    1.4125485063017618e-08,
+    -0.22623026847839314,
+    0.0
+  ],
+  "reason_chair_translation": "Keep prior clearance relative to the newly extended front edge; do not bury the chair under the larger tabletop.",
+  "physically_calibrated": false,
+  "source_scene_unchanged": true,
+  "v4_removed_front_table_items": [
+    "LaptopDesk__laptop_base",
+    "LaptopDesk__laptop_screen"
+  ],
+  "v4_added_dynamic_props": [
+    "hei_object_cube_red",
+    "hei_object_cube_green",
+    "hei_object_cube_blue",
+    "hei_object_bottle"
+  ]
+}

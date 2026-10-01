@@ -1,0 +1,147 @@
+{
+  "tabletop_surface_center_m": [
+    -1.7807635907495134,
+    -2.5130233779816327,
+    0.7700774978491554
+  ],
+  "table_size_m": [
+    1.8600000000000003,
+    0.88,
+    0.02200000000000002
+  ],
+  "initial_gap_m": 0.0005,
+  "static_room_preserved": true,
+  "objects": [
+    {
+      "name": "hei_object_cube_red",
+      "color": "red",
+      "shape": "box",
+      "full_size_m": [
+        0.08,
+        0.08,
+        0.08
+      ],
+      "mass_kg": 0.12,
+      "mass_measured": false,
+      "initial_position_m": [
+        -2.0607635919982834,
+        -2.4930233954644208,
+        0.8105774978491553
+      ],
+      "initial_quat_wxyz": [
+        0.9999999999999996,
+        0.0,
+        0.0,
+        3.1219264243517216e-08
+      ],
+      "tabletop_local_xy_m": [
+        -0.28,
+        0.02
+      ],
+      "joint": "hei_object_cube_red_free",
+      "geometry_source": "pinned upstream scene.xml"
+    },
+    {
+      "name": "hei_object_cube_green",
+      "color": "green",
+      "shape": "box",
+      "full_size_m": [
+        0.08,
+        0.08,
+        0.08
+      ],
+      "mass_kg": 0.12,
+      "mass_measured": false,
+      "initial_position_m": [
+        -1.780763591998284,
+        -2.4930233779816326,
+        0.8105774978491553
+      ],
+      "initial_quat_wxyz": [
+        0.9999999999999996,
+        0.0,
+        0.0,
+        3.1219264243517216e-08
+      ],
+      "tabletop_local_xy_m": [
+        0.0,
+        0.02
+      ],
+      "joint": "hei_object_cube_green_free",
+      "geometry_source": "pinned upstream scene.xml"
+    },
+    {
+      "name": "hei_object_cube_blue",
+      "color": "blue",
+      "shape": "box",
+      "full_size_m": [
+        0.08,
+        0.08,
+        0.08
+      ],
+      "mass_kg": 0.12,
+      "mass_measured": false,
+      "initial_position_m": [
+        -1.5007635919982845,
+        -2.4930233604988445,
+        0.8105774978491553
+      ],
+      "initial_quat_wxyz": [
+        0.9999999999999996,
+        0.0,
+        0.0,
+        3.1219264243517216e-08
+      ],
+      "tabletop_local_xy_m": [
+        0.28,
+        0.02
+      ],
+      "joint": "hei_object_cube_blue_free",
+      "geometry_source": "pinned upstream scene.xml"
+    },
+    {
+      "name": "hei_object_bottle",
+      "shape": "compound_cylinder_frustum",
+      "outer_diameter_m": 0.065,
+      "total_height_m": 0.22,
+      "water_volume_ml": 500,
+      "water_mass_kg": 0.5,
+      "container_mass_kg": 0.03,
+      "mass_kg": 0.53,
+      "mass_measured": false,
+      "dimensions_measured": false,
+      "initial_position_m": [
+        -1.1907635832568912,
+        -2.6330233411429007,
+        0.7705774978491553
+      ],
+      "initial_quat_wxyz": [
+        0.9999999999999996,
+        0.0,
+        0.0,
+        3.1219264243517216e-08
+      ],
+      "tabletop_local_xy_m": [
+        0.59,
+        -0.12
+      ],
+      "joint": "hei_object_bottle_free",
+      "center_of_mass_local_m": [
+        0,
+        0,
+        0.07759245283018869
+      ],
+      "diagonal_inertia_kg_m2": [
+        0.0012687783448113207,
+        0.0012687783448113207,
+        0.00027600475000000003
+      ],
+      "liquid_model": "rigid filled bottle; no slosh or deformable PET",
+      "geometry_source": "new generic unbranded prop; not an upstream asset or a measured commercial bottle"
+    }
+  ],
+  "upstream_commit": "08a1f728e98b59e3a88e013ecd295cc5b0a21542",
+  "dimensional_note": "box XML size is HALF extent; 0.04 m means 80 mm full edge",
+  "user_bottle_fill": "500 mL water, explicitly confirmed",
+  "bottle_inertia_is_approximation": true
+}

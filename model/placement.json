@@ -1,0 +1,91 @@
+{
+  "units": "meters",
+  "native_up": "Z",
+  "base_frame": "base_footprint (X forward, Y left, Z up)",
+  "position_room": [
+    -1.7522286478587314,
+    -1.9938493400008652,
+    0.0
+  ],
+  "yaw_radians": -1.5707963267948966,
+  "yaw_degrees": -90,
+  "room_from_base_footprint": [
+    [
+      6.123233995736766e-17,
+      1.0,
+      0.0,
+      -1.7522286478587314
+    ],
+    [
+      -1.0,
+      6.123233995736766e-17,
+      0.0,
+      -1.9938493400008652
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "scan_zup_from_base_footprint": [
+    [
+      -0.9557316676802505,
+      0.29423966318823824,
+      0.0,
+      -1.0846833191710012
+    ],
+    [
+      -0.29423966318823774,
+      -0.9557316676802505,
+      0.0,
+      0.20802852442906095
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      -1.4540148377418518
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "regional_reference": {
+    "id": "central_mobile_robot_region",
+    "raw_proxy": "Chair7",
+    "position": [
+      -1.7522286478587314,
+      -2.0938493400008653,
+      0
+    ],
+    "orientation_reference": [
+      0.9998555993057522,
+      0.0,
+      0.0,
+      -0.01699354397808489
+    ],
+    "calibration": "regional reference ONLY, not a measured robot base/mount transform",
+    "collision": false
+  },
+  "offset_from_reference_m": [
+    0,
+    0.1,
+    0
+  ],
+  "reason": "Unshifted regional center intersects LaptopDesk top by about 49 mm with this CAD. Shift +Y 100 mm; face the laptop desk (-Y).",
+  "measured_base_calibration": false,
+  "original_robot_axis_correction_applied_again": false,
+  "base_mode": "fixed; no freejoint, wheel actuation, teleportation, or mobile-base dynamics",
+  "scope": "approximate local simulation placement; not a navigation or real-robot safety certificate"
+}

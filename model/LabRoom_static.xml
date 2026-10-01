@@ -1,0 +1,10 @@
+<mujoco model="lab_room_static_robot_free">
+  <compiler angle="radian" />
+  <option timestep=".002" gravity="0 0 -9.81" />
+  <visual>
+    <headlight ambient=".4 .4 .4" diffuse=".7 .7 .7" />
+    <global offwidth="1600" offheight="1000" />
+  </visual>
+  <statistic center="0 -3.2 1.1" extent="7" />
+  <include file="LabRoom_environment.xml" />
+</mujoco>

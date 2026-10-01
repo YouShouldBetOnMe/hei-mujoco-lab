@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+.venv-*/
+venv/
+.env
+.env.*
+!.env.example
+tmp/
+logs/
+evidence/runtime/
+evidence/*.jsonl
+dataset/
+attempts/
+previews/

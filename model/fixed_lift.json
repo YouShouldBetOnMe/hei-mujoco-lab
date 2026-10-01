@@ -1,0 +1,8 @@
+{
+  "fixed_lift_m": 0.0,
+  "method": "lift joint and actuator removed; displacement applied once to parent body frame",
+  "room_environment_and_props_includes_unchanged": true,
+  "base_pose_unchanged": true,
+  "original_robot_camera_mounts_unchanged": true,
+  "only_episode_reset_initializes_state": true
+}

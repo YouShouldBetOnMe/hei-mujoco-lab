@@ -1,0 +1,12 @@
+name: hei-mujoco-lab
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - mujoco==3.5.0
+      - numpy==2.2.6
+      - scipy==1.15.2
+      - pyobjc-core==12.2.2; sys_platform == "darwin"
+      - pyobjc-framework-Cocoa==12.2.2; sys_platform == "darwin"
