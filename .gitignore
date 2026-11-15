@@ -4,13 +4,4 @@ __pycache__/
 .venv/
 .venv-*/
 venv/
-.env
-.env.*
-!.env.example
-tmp/
-logs/
-evidence/runtime/
-evidence/*.jsonl
-dataset/
-attempts/
-previews/
+examples/out/

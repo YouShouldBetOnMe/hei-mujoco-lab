@@ -1,106 +1,63 @@
-# hei-mujoco-lab
+# HEI MuJoCo Lab：与真机对齐的抓滚筒仿真
 
-这是当前验收通过的实验室静态房间配置，包含完整房间、HEI 双臂机器人、桌面上的三个彩色方块和一瓶约 500 mL 的水。配置使用 MuJoCo 3.5.0，底盘和升降保持固定，手臂使用有限力位置执行器，物体使用真实接触动力学。
+这是 Grab_Roller（双臂抓 40 cm 木滚筒）的仿真场景。只改动仿真，按真实 HEI 机器人的测量结果做了对齐。测量分两次：2026-10-29 和 2026-11-14。
 
-仓库中的 `model/` 是可运行场景的完整资源。机器人网格与原 HEI 项目保持一致，房间 XML 已包含碰撞、摩擦、重力、相机和固定升降设置。`scripts/scene.py` 提供动作目标映射和全姿态 IK，`simulate.py` 提供观察者视角和自动隐藏遮挡墙体。
+- 场景文件：`model/aligned_grab_roller.xml`。机器人网格（含长手指）在 `model/meshes/`。
+- 运行时：`hei_aligned.py`。负责加载场景、按真机特性控制手臂、渲染带真实镜头畸变的三路相机，以及移动桌子、摆放滚筒。
 
-## 安装
+## 安装与运行
 
-先克隆仓库，建议使用 Python 3.10：
-
-```sh
-git clone https://github.com/YouShouldBetOnMe/hei-mujoco-lab.git
-cd hei-mujoco-lab
-```
-
-使用 Conda：
+需要 Python 3.10 以上。在仓库根目录：
 
 ```sh
-conda env create -f environment.yml
-conda activate hei-mujoco-lab
-python check_environment.py
-```
-
-或者使用 Python 虚拟环境（macOS / Linux）：
-
-```sh
-python3 -m venv .venv
-source .venv/bin/activate
 python -m pip install -r requirements.txt
-python check_environment.py
+python examples/render_and_move.py
 ```
 
-Windows PowerShell：
+示例程序会摆好桌子和滚筒，让右臂向滚筒移动 3 秒，然后把三路相机画面存到 `examples/out/`。
 
-```powershell
-py -3.10 -m venv .venv
-.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-python check_environment.py
+```python
+from hei_aligned import AlignedGrabRoller
+env = AlignedGrabRoller()
+env.reset()                                    # 两臂在准备位 [0, -0.5, -0.5, 0, 0, 0]，夹爪闭合
+env.set_table(shift_left=0, shift_fwd=0, yaw_rad=0)
+env.place_roller(left=0.0, fwd=0.40)
+env.step(action14, substeps=17)                # 一帧（1/30 s）
+images = env.render()                          # front / left_wrist / right_wrist，480×640 RGB
+state = env.state()
 ```
 
-`requirements.txt` 锁定本机已验证的 MuJoCo 3.5.0、NumPy 2.2.6 和 SciPy 1.15.2；macOS 手柄依赖 PyObjC 12.2.2。Linux 使用原生窗口时需要可用的显示环境和 OpenGL 驱动；无窗口物理检查无需图形界面。
+## 约定
 
-验证脚本会加载真实 XML、推进 500 个物理步，并检查模型尺寸、重力、步长、物理警告和 37 个模型文件的 SHA-256。
+- **动作和状态**都是 14 维：右臂 J1–J6、右夹爪开口（m）、左臂 J1–J6、左夹爪开口（m）。
+- **关节角就是真机的关节读数。** 零位偏差已经写进模型（关节的 `ref`），所以真机读数可以直接拿来用。
+- **夹爪**：模型里用开口宽度（m）。真机部署程序发给模型的夹爪状态是 `开口 × −45`，再用实测的电机角–开口对照表换算成电机指令。
+- **摆放坐标**：`left`（m，机器人左侧为正）和 `fwd`（m，J1 轴连线前方为正）。换算到仿真世界坐标是 `x = MID_X + left`、`y = J1_Y − fwd`，常数在 `interface.json`。
 
-## 启动
+## 对齐了哪些内容
 
-激活安装依赖的环境后，在 macOS、Linux、Windows 上均可运行：
+| 项目 | 依据 | 结果 |
+|---|---|---|
+| 长夹爪 | 真机长手指网格、质量、惯量；指尖 TCP 前移 3.42 cm；手指按凹槽拆成凸块做碰撞 | 夹住 28 mm 滚筒时的夹爪读数和真机一致 |
+| 关节零位 J1–J5、桌面高度 | 24 次指尖碰桌，桌子在两个位置；加上 10-29 的尺量指尖高度和 J2 轴高度 | 每次去掉一个点再预测它，两臂每个方向的误差 ≤ 0.33 cm |
+| J6 零位 | 滚筒和手指画面 | 碰触测试测不到 J6 |
+| 头部相机 | 实测内参和畸变；朝向用 24 张验收照片拟合 | 照片里滚筒的位置误差约 0.1 cm |
+| 腕部相机 | 实测内参和畸变；安装角度用 6 张照片拟合、另 6 张检验 | 横向误差 ≤ 0.1 cm；沿滚筒方向约 1 cm |
+| 桌子、滚筒 | 80×40 cm 奶油色桌面；滚筒 40×2.8 cm、圆头、木色 | — |
+| 手臂跟随 | 用真机 30 Hz 指令和反馈拟合：`v = clip(k·(指令(t−40 ms) − q), ±0.5 rad/s)`，J1–J3 k = 1.38 /s，J4–J6 k = 5.6 /s，重力补偿 | 回放误差 0.002–0.005 rad |
+| 夹爪速度 | 张开 65 mm/s，闭合 70 mm/s | 回放误差约 1 mm |
 
-```sh
-python launch.py
-```
+详细数字见 `results/ALIGNMENT_RESULTS.json`，标定参数见 `calibration/`。`results/EXPORT_CHECK.json` 是一致性检查：这个独立运行时和原实验环境同步运行 3 秒，关节位置最大相差 3.6e-8 rad，三路画面像素完全相同。
 
-macOS 也可以双击 [launch_scene.command](launch_scene.command)；它优先使用仓库内的 `.venv`，然后查找 PATH 中的 Python。使用 Conda 时从已激活的终端运行：
+## 使用时要注意
 
-```sh
-./launch_scene.command
-```
+1. **头部相机背景**：旧模型对桌子以外的背景非常敏感，包括房间、另一张桌子、人和光线。闭环测试里，把仿真头部画面的背景换成真机实验室的背景后，仿真里伸手的距离和高度才和真机对上。生成数据时请对头部相机背景做强随机化，最好合成真实实验室的背景照片。评估时也建议加一组真实背景合成。
+2. **桌子位置**：真机桌子会被挪动，11-14 当天就挪过 12 cm。默认位置是 10-29 的摆法（近边在 J1 前方 22.5 cm）。生成数据时请用 `set_table` 随机化。
+3. **腕部相机**：沿滚筒方向还有约 1 cm 残差；另外左腕相机在 10-29 到 11-14 之间偏了约 5°。建议对腕部相机位姿做小幅随机化，大约 ±1.5°、±1 cm。
+4. **手臂自碰**：真机夹爪的开合部件会挂到自己 J1 附近，滚筒离机器人很近、手腕折得很紧时会发生，仿真的碰撞模型发现不了。生成专家轨迹时请避开这类姿态。
+5. **没有测量的内容**：滚筒质量（按木头估计约 148 g，建议在 100–200 g 内随机）、摩擦、夹持力。外观和光照只做了粗略匹配。
+6. **真机时序**：图像约 0.67 秒后才生效。真机按“拍照到现在过了多少帧”从计划里取动作；计划预告要张开夹爪时，新计划会等旧计划执行完。评估时请按这个时序来。
 
-Python 启动器会在 macOS 自动选择当前环境的 `mjpython`，Linux 和 Windows 使用当前 Python。如果要显式指定 macOS MuJoCo 可执行文件，可以运行：
+## 许可
 
-```sh
-MUJOCO_PYTHON=/path/to/mjpython ./launch_scene.command
-```
-
-也可以运行无窗口检查：
-
-```sh
-python simulate.py --headless --steps 1000
-```
-
-## 参数约定
-
-- 重力为 `(0, 0, -9.81) m/s^2`，物理步长为 `0.002 s`。
-- 模型为 `nq=48, nv=44, nu=16`，没有 equality 和 mocap。
-- 三个方块为 `80 x 80 x 80 mm`、每个约 `120 g`。
-- 满水瓶约 `65 mm` 直径、`220 mm` 高、约 `530 g`。
-- 桌面和物体的摩擦参数为 `(0.8, 0.01, 0.001)`，机器人碰撞体为 `(1.0, 0.01, 0.001)`。
-- 实验室底盘和升降为固定状态；动作接口最后四维保持为零。
-- 红色双开门保留为封闭、不可通行的静态结构。
-- 观察者视角会根据视线隐藏遮挡墙体；机器人相机保持完整房间视野。
-- 保留本机已验收的机器人自碰撞关闭设置；物理参数是当前仿真基线，并非实机标定值。
-
-## Xbox 手柄
-
-macOS 连接 Xbox 手柄后双击 [手柄控制.command](手柄控制.command)：
-
-```sh
-./手柄控制.command
-```
-
-或者在已激活的环境中运行 `python launch.py --gamepad`。手柄读取目前只支持 macOS；Windows 和 Linux 可以打开同一场景。
-
-点击 MuJoCo 窗口，松开 RT 并回中摇杆，再按住 RT 操作。A/B 选择左/右臂，左摇杆控制平面移动，右摇杆控制高度和偏航，LB/RB 控制夹爪，LT 进入精细模式，Menu 暂停恢复。实验室配置不会移动底盘和升降。
-
-手柄读取使用 macOS 原生 GameController，不需要额外的硬件驱动。窗口失去焦点、手柄断连或输入超时会停止运动指令；重连后需要先回中和释放 RT。详细映射见 [gamepad/README.md](gamepad/README.md)。
-
-## 仓库范围
-
-发布库只保存可复现配置和运行代码。它不包含本机 Python 虚拟环境、缓存、原始扫描、训练数据、动作尝试、运行日志或模型权重。当前已验证的 633 帧三方块示范仍留在原工作区；需要共享数据时应单独使用数据集发布渠道。
-
-机器人网格来源于 [lipengdong/hei-rebot-lift](https://github.com/lipengdong/hei-rebot-lift)，相关 Apache 2.0 许可文本见 [LICENSE-HEI-ROBOT.txt](LICENSE-HEI-ROBOT.txt)。
-
-## 与真机对齐的抓滚筒场景
-
-`aligned_grab_roller/` 是按真实 HEI 机器人测量结果对齐的 Grab_Roller 场景（2026-10-29、2026-11-14 两次实测）：长夹爪、关节零位、桌面高度、三路相机内外参和镜头畸变、手臂跟随特性。使用方法、对齐结果和注意事项见 [aligned_grab_roller/README.md](aligned_grab_roller/README.md)。
+`model/meshes/` 里的 HEI 机器人网格来自 [lipengdong/hei-rebot-lift](https://github.com/lipengdong/hei-rebot-lift)，按 Apache License 2.0 分发，许可全文见 `LICENSE-HEI-ROBOT.txt`，说明见 `THIRD_PARTY_NOTICES.md`。

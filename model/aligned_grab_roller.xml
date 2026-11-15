@@ -1,5 +1,5 @@
 <mujoco model="grab_roller_original_lab_fixed_lift0">
-  <compiler angle="radian" meshdir="../../model/meshes/"/>
+  <compiler angle="radian" meshdir="meshes/"/>
 
   <option impratio="10" integrator="implicitfast" cone="elliptic" iterations="60" noslip_iterations="5">
     <flag multiccd="enable"/>
@@ -53,8 +53,8 @@
     <mesh name="a_right_link4" content_type="model/stl" file="a_right_link4.STL"/>
     <mesh name="a_right_link5" content_type="model/stl" file="a_right_link5.STL"/>
     <mesh name="a_right_link6" content_type="model/stl" file="a_right_link6.STL"/>
-    <mesh name="a_right_end_link_L_finger" content_type="model/stl" file="../../aligned_grab_roller/model/assets/a_right_end_link_L_finger.STL"/>
-    <mesh name="a_right_end_link_R_finger" content_type="model/stl" file="../../aligned_grab_roller/model/assets/a_right_end_link_R_finger.STL"/>
+    <mesh name="a_right_end_link_L_finger" content_type="model/stl" file="a_right_end_link_L_finger.STL"/>
+    <mesh name="a_right_end_link_R_finger" content_type="model/stl" file="a_right_end_link_R_finger.STL"/>
     <mesh name="b_left_base_link" content_type="model/stl" file="b_left_base_link.STL"/>
     <mesh name="b_left_link1" content_type="model/stl" file="b_left_link1.STL"/>
     <mesh name="b_left_link2" content_type="model/stl" file="b_left_link2.STL"/>
@@ -62,8 +62,8 @@
     <mesh name="b_left_link4" content_type="model/stl" file="b_left_link4.STL"/>
     <mesh name="b_left_link5" content_type="model/stl" file="b_left_link5.STL"/>
     <mesh name="b_left_link6" content_type="model/stl" file="b_left_link6.STL"/>
-    <mesh name="b_left_end_link_L_finger" content_type="model/stl" file="../../aligned_grab_roller/model/assets/b_left_end_link_L_finger.STL"/>
-    <mesh name="b_left_end_link_R_finger" content_type="model/stl" file="../../aligned_grab_roller/model/assets/b_left_end_link_R_finger.STL"/>
+    <mesh name="b_left_end_link_L_finger" content_type="model/stl" file="b_left_end_link_L_finger.STL"/>
+    <mesh name="b_left_end_link_R_finger" content_type="model/stl" file="b_left_end_link_R_finger.STL"/>
     <mesh name="RoomFloor__prism_0_mesh" vertex="-7.59421 -0.096056 -0.05 3.7971 -0.0960547 -0.05 3.7971 0.192111 -0.05 -7.59421 -0.096056 0.05 3.7971 -0.0960547 0.05 3.7971 0.192111 0.05" face="0 2 1 3 4 5 0 1 4 0 4 3 1 2 5 1 5 4 2 0 3 2 3 5"/>
     <mesh name="RoomFloor__prism_1_mesh" vertex="-0.151451 -2.20776 -0.05 0.0757257 -2.20776 -0.05 0.0757256 4.41552 -0.05 -0.151451 -2.20776 0.05 0.0757257 -2.20776 0.05 0.0757256 4.41552 0.05" face="0 2 1 3 4 5 0 1 4 0 4 3 1 2 5 1 5 4 2 0 3 2 3 5"/>
     <mesh name="RoomFloor__prism_2_mesh" vertex="-7.66993 -2.39987 -0.05 3.72138 -2.11171 -0.05 3.94856 4.51158 -0.05 -7.66993 -2.39987 0.05 3.72138 -2.11171 0.05 3.94856 4.51158 0.05" face="0 2 1 3 4 5 0 1 4 0 4 3 1 2 5 1 5 4 2 0 3 2 3 5"/>

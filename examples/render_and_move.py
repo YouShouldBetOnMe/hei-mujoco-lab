@@ -1,5 +1,5 @@
 """Smoke test: place the table and roller, move the right arm toward the roller for 3 s, save the three camera images.
-    python aligned_grab_roller/examples/render_and_move.py        -> aligned_grab_roller/examples/out/*.png
+    python examples/render_and_move.py        -> examples/out/*.png
 """
 import sys
 from pathlib import Path
