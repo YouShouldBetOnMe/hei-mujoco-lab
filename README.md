@@ -100,3 +100,7 @@ macOS 连接 Xbox 手柄后双击 [手柄控制.command](手柄控制.command)�
 发布库只保存可复现配置和运行代码。它不包含本机 Python 虚拟环境、缓存、原始扫描、训练数据、动作尝试、运行日志或模型权重。当前已验证的 633 帧三方块示范仍留在原工作区；需要共享数据时应单独使用数据集发布渠道。
 
 机器人网格来源于 [lipengdong/hei-rebot-lift](https://github.com/lipengdong/hei-rebot-lift)，相关 Apache 2.0 许可文本见 [LICENSE-HEI-ROBOT.txt](LICENSE-HEI-ROBOT.txt)。
+
+## 与真机对齐的抓滚筒场景
+
+`aligned_grab_roller/` 是按真实 HEI 机器人测量结果对齐的 Grab_Roller 场景（2026-10-29、2026-11-14 两次实测）：长夹爪、关节零位、桌面高度、三路相机内外参和镜头畸变、手臂跟随特性。使用方法、对齐结果和注意事项见 [aligned_grab_roller/README.md](aligned_grab_roller/README.md)。

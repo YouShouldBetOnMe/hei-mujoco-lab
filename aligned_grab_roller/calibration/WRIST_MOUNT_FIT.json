@@ -1,0 +1,188 @@
+{
+ "right": {
+  "photos": 12,
+  "iou_cad_pos_cad_rot": 0.302,
+  "iou_cad_pos_handeye_rot": 0.611,
+  "fit_a": {
+   "pos": [
+    0.0965,
+    -0.0058,
+    0.0573
+   ],
+   "opening_per_finger_m": 0.0397,
+   "iou": 0.802
+  },
+  "fit_b": {
+   "pos": [
+    0.0944,
+    -0.0006,
+    0.0581
+   ],
+   "opening_per_finger_m": 0.0397,
+   "iou": 0.963,
+   "rot_from_handeye_deg": 4.11,
+   "rot_from_cad_deg": 5.65,
+   "R_cv": [
+    [
+     -0.012613,
+     -0.349937,
+     0.936688
+    ],
+    [
+     -0.999723,
+     0.023016,
+     -0.004863
+    ],
+    [
+     -0.019857,
+     -0.936491,
+     -0.35013
+    ]
+   ]
+  },
+  "handeye_from_cad_deg": 7.38,
+  "rot_fix_modeD_superseded": {
+   "rotvec_deg": [
+    -1.158,
+    1.13,
+    -1.879
+   ],
+   "frame": "camera (MuJoCo: x right, y up, looking along -z), applied after fit_b",
+   "source": "wrist_refit.py: roller outlines in 6 of the 12 holdout photos of 11-14; the other 6 held out",
+   "test_before": {
+    "chamfer_px": 13.18,
+    "across_cm_median": 0.45,
+    "across_cm_abs_max": 1.22,
+    "end_along_cm_median": 1.79,
+    "end_along_cm_abs_max": 3.11,
+    "iou_median": 0.647
+   },
+   "test_after": {
+    "chamfer_px": 10.0,
+    "across_cm_median": -0.12,
+    "across_cm_abs_max": 1.84,
+    "end_along_cm_median": 1.61,
+    "end_along_cm_abs_max": 3.68,
+    "iou_median": 0.788
+   }
+  },
+  "rot_fix_20261114": {
+   "rotvec_deg": [
+    -1.43,
+    1.565,
+    -2.534
+   ],
+   "frame": "camera (MuJoCo: x right, y up, looking along -z), applied after fit_b",
+   "source": "wrist_refit.py with the mode-F zeros: roller outlines in 6 of the 12 holdout photos of 11-14; the other 6 held out",
+   "test_before": {
+    "chamfer_px": 14.06,
+    "across_cm_median": 0.57,
+    "across_cm_abs_max": 0.99,
+    "end_along_cm_median": 1.43,
+    "end_along_cm_abs_max": 3.11,
+    "iou_median": 0.611
+   },
+   "test_after": {
+    "chamfer_px": 9.37,
+    "across_cm_median": -0.12,
+    "across_cm_abs_max": 1.85,
+    "end_along_cm_median": 1.02,
+    "end_along_cm_abs_max": 3.79,
+    "iou_median": 0.796
+   }
+  }
+ },
+ "left": {
+  "photos": 12,
+  "iou_cad_pos_cad_rot": 0.472,
+  "iou_cad_pos_handeye_rot": 0.478,
+  "fit_a": {
+   "pos": [
+    0.0847,
+    -0.0081,
+    0.0617
+   ],
+   "opening_per_finger_m": 0.0395,
+   "iou": 0.789
+  },
+  "fit_b": {
+   "pos": [
+    0.0903,
+    -0.0027,
+    0.0632
+   ],
+   "opening_per_finger_m": 0.0397,
+   "iou": 0.933,
+   "rot_from_handeye_deg": 4.51,
+   "rot_from_cad_deg": 4.83,
+   "R_cv": [
+    [
+     0.020312,
+     -0.336296,
+     0.941537
+    ],
+    [
+     -0.999738,
+     0.003123,
+     0.022683
+    ],
+    [
+     -0.010568,
+     -0.941751,
+     -0.336144
+    ]
+   ]
+  },
+  "handeye_from_cad_deg": 6.7,
+  "rot_fix_modeD_superseded": {
+   "rotvec_deg": [
+    -1.507,
+    -2.825,
+    -3.65
+   ],
+   "frame": "camera (MuJoCo: x right, y up, looking along -z), applied after fit_b",
+   "source": "wrist_refit.py: roller outlines in 6 of the 12 holdout photos of 11-14; the other 6 held out",
+   "test_before": {
+    "chamfer_px": 25.24,
+    "across_cm_median": 2.15,
+    "across_cm_abs_max": 3.88,
+    "end_along_cm_median": 1.09,
+    "end_along_cm_abs_max": 2.68,
+    "iou_median": 0.113
+   },
+   "test_after": {
+    "chamfer_px": 7.39,
+    "across_cm_median": 0.04,
+    "across_cm_abs_max": 2.07,
+    "end_along_cm_median": 0.32,
+    "end_along_cm_abs_max": 4.34,
+    "iou_median": 0.86
+   }
+  },
+  "rot_fix_20261114": {
+   "rotvec_deg": [
+    -0.946,
+    -1.719,
+    -4.101
+   ],
+   "frame": "camera (MuJoCo: x right, y up, looking along -z), applied after fit_b",
+   "source": "wrist_refit.py with the mode-F zeros: roller outlines in 6 of the 12 holdout photos of 11-14; the other 6 held out",
+   "test_before": {
+    "chamfer_px": 24.51,
+    "across_cm_median": 1.53,
+    "across_cm_abs_max": 3.43,
+    "end_along_cm_median": 1.32,
+    "end_along_cm_abs_max": 2.83,
+    "iou_median": 0.253
+   },
+   "test_after": {
+    "chamfer_px": 8.88,
+    "across_cm_median": -0.05,
+    "across_cm_abs_max": 2.23,
+    "end_along_cm_median": 0.97,
+    "end_along_cm_abs_max": 3.95,
+    "iou_median": 0.807
+   }
+  }
+ }
+}

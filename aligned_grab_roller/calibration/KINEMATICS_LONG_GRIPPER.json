@@ -1,0 +1,145 @@
+{
+ "source": "J1-J5, dz: 11-14 fingertip touches (24, two table placements) + 10-29 ruler heights + tape, solved together (check_touch_fit.py mode F). The checkerboard is left out: it lay on a 1.0-1.4 cm backing (user, 11-14) and its height also depends on the wrist mount; mode D, which assumed it lay on the table, is in KINEMATICS_LONG_GRIPPER.json.bak-modeD. J6: image result (fit_zeros_roller.py).",
+ "convention": "sim q = real q + dq; real table top = old sim desk 0.7701 - dz",
+ "right": {
+  "dq1_rad": -0.0575,
+  "dq2_rad": 0.0991,
+  "dq3_rad": 0.0021,
+  "dq4_rad": -0.0092,
+  "dq5_rad": 0.1294,
+  "dq6_rad": 0.0604
+ },
+ "left": {
+  "dq1_rad": -0.0175,
+  "dq2_rad": 0.1267,
+  "dq3_rad": 0.0336,
+  "dq4_rad": -0.0001,
+  "dq5_rad": 0.0004,
+  "dq6_rad": 0.0134
+ },
+ "dz_m": -0.0074,
+ "rms_cm": 0.299,
+ "tip_from_link6_m": 0.21713,
+ "checks": {
+  "tape_measure_dz_m": -0.0123,
+  "per_arm_dz_cm": {
+   "right": -0.97,
+   "left": -1.0
+  },
+  "short_gripper_fit": {
+   "rms_cm": 0.325,
+   "dz_cm": -4.83
+  },
+  "dq4_free": "dq4 0.03 rad on both arms, rms only 0.233 cm: not separable, treated as 0"
+ },
+ "stage_mesh_fit_before_image_zeros": {
+  "right": {
+   "dq1_rad": -0.0719,
+   "dq2_rad": 0.1092,
+   "dq3_rad": -0.0366,
+   "dq4_rad": 0.0319,
+   "dq5_rad": 0.1237,
+   "dq6_rad": 0.0719
+  },
+  "left": {
+   "dq1_rad": -0.0269,
+   "dq2_rad": 0.1309,
+   "dq3_rad": -0.025,
+   "dq4_rad": 0.0691,
+   "dq5_rad": -0.033,
+   "dq6_rad": -0.0223
+  },
+  "dz_m": -0.0205,
+  "rms_cm": 0.262
+ },
+ "board_above_table_cm": {
+  "right": -0.01,
+  "left": -0.13
+ },
+ "before_touch_fit_20261114": {
+  "right": {
+   "dq1_rad": -0.0867,
+   "dq2_rad": 0.116,
+   "dq3_rad": -0.0536,
+   "dq4_rad": 0.067,
+   "dq5_rad": 0.1276,
+   "dq6_rad": 0.0604
+  },
+  "left": {
+   "dq1_rad": -0.0326,
+   "dq2_rad": 0.1155,
+   "dq3_rad": -0.0489,
+   "dq4_rad": 0.0576,
+   "dq5_rad": -0.0305,
+   "dq6_rad": 0.0134
+  },
+  "dz_m": -0.0239,
+  "source": "J2, J3, J4, dz: ruler heights + flat checkerboard + tape (fit_poses_final.py). J1, J5, J6: still roller in wrist views, arm silhouette in head views, flat checkerboard (fit_zeros_roller.py)"
+ },
+ "touch_fit_20261114": {
+  "dq_change_deg": {
+   "right": [
+    0.88,
+    -0.03,
+    -0.08,
+    -0.18,
+    0.24
+   ],
+   "left": [
+    1.17,
+    0.52,
+    0.91,
+    0.07,
+    0.76
+   ]
+  },
+  "dz_cm": -0.74,
+  "sessions": [
+   {
+    "shift_cm": [
+     1.8,
+     -0.26
+    ],
+    "yaw_deg": -1.66
+   },
+   {
+    "shift_cm": [
+     -0.09,
+     -0.32
+    ],
+    "yaw_deg": -0.78
+   }
+  ],
+  "touch_rms_cm": {
+   "right": {
+    "sideways": 0.21,
+    "forward": 0.18,
+    "height": 0.07
+   },
+   "left": {
+    "sideways": 0.23,
+    "forward": 0.26,
+    "height": 0.24
+   }
+  },
+  "loo_rms_cm": {
+   "right": {
+    "sideways": 0.26,
+    "forward": 0.23,
+    "height": 0.09
+   },
+   "left": {
+    "sideways": 0.28,
+    "forward": 0.3,
+    "height": 0.33
+   }
+  },
+  "loo_worst_cm": 0.92,
+  "old_1029_rms_cm": {
+   "ruler": 0.28,
+   "board_above_table": 0.57,
+   "board_mean": -0.31
+  },
+  "mode": "F"
+ }
+}

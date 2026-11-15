@@ -1,0 +1,9 @@
+{
+ "max_qpos_diff": 3.5835163059161346e-08,
+ "max_pixel_diff": {
+  "front": 0,
+  "left_wrist": 0,
+  "right_wrist": 0
+ },
+ "frames": 90
+}

@@ -1,0 +1,146 @@
+{
+ "mujoco_version": "3.5.0",
+ "joint_names": [
+  "a_right_joint1",
+  "a_right_joint2",
+  "a_right_joint3",
+  "a_right_joint4",
+  "a_right_joint5",
+  "a_right_joint6",
+  "a_right_end_joint_L_finger",
+  "a_right_end_joint_R_finger",
+  "b_left_joint1",
+  "b_left_joint2",
+  "b_left_joint3",
+  "b_left_joint4",
+  "b_left_joint5",
+  "b_left_joint6",
+  "b_left_end_joint_L_finger",
+  "b_left_end_joint_R_finger"
+ ],
+ "J1_Y": -2.09,
+ "MID_X": -1.7522,
+ "image_size": [
+  640,
+  480
+ ],
+ "timestep": 0.002,
+ "dynamics": {
+  "k": [
+   1.38,
+   1.38,
+   1.38,
+   5.6,
+   5.6,
+   5.6
+  ],
+  "vmax": 0.5,
+  "delay_s": 0.04,
+  "gripper_k": 6.0,
+  "gripper_open_m_s": 0.065,
+  "gripper_close_m_s": 0.07
+ },
+ "cameras": {
+  "front": {
+   "K": [
+    [
+     412.5093664744273,
+     0.0,
+     345.4364715086271
+    ],
+    [
+     0.0,
+     410.9512036724453,
+     220.08199817764128
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "dist": [
+    0.024553530245220733,
+    0.018468145126617496,
+    -0.00993334441569613,
+    0.010236908479034018,
+    -0.0634630191153131
+   ]
+  },
+  "right_wrist": {
+   "K": [
+    [
+     735.1362988552529,
+     0.0,
+     308.0585082885078
+    ],
+    [
+     0.0,
+     733.6235581172502,
+     237.06149613913186
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "dist": [
+    0.010971711360882994,
+    -0.31414927019167815,
+    -0.004253577391876025,
+    0.0004394673211388945,
+    1.5072675508866085
+   ]
+  },
+  "left_wrist": {
+   "K": [
+    [
+     757.6847883601647,
+     0.0,
+     323.8940757961441
+    ],
+    [
+     0.0,
+     754.190154746795,
+     230.4322318354738
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "dist": [
+    -0.013878946644686608,
+    0.1674447690035156,
+    -0.0063146540091541005,
+    -0.0026387226849462764,
+    -0.6702840000583767
+   ]
+  }
+ },
+ "table": {
+  "top_z": 0.7775000000000001,
+  "length": 0.8,
+  "depth": 0.4,
+  "thickness": 0.022,
+  "centre_left_fwd": [
+   -0.026,
+   0.42500000000000004
+  ],
+  "note": "default = the 10-29 placement; the real table is moved between sessions, see set_table"
+ },
+ "roller": {
+  "radius": 0.014,
+  "length": 0.4,
+  "density": 600.0,
+  "rgba": [
+   0.58,
+   0.37,
+   0.26,
+   1.0
+  ]
+ },
+ "kinematics": "J1-J5, dz: 11-14 fingertip touches (24, two table placements) + 10-29 ruler heights + tape, solved together (check_touch_fit.py mode F). The checkerboard is left out: it lay on a 1.0-1.4 cm backing (user, 11-14) and its height also depends on the wrist mount; mode D, which assumed it lay on the table, is in KINEMATICS_LONG_GRIPPER.json.bak-modeD. J6: image result (fit_zeros_roller.py)."
+}
